@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 public class StudentController {
+    //TODO GTB: 尽量避免使用static, 应加上private, 限制字段的访问
     static List<Student> listOfStudent;
 
     private void createStudentList() {
@@ -16,6 +17,7 @@ public class StudentController {
     }
 
     @GetMapping("/student")
+    //TODO GTB: 可以直接放回List<Student>
     public ResponseEntity<List<Student>> getStudentList() {
         createStudentList();
         return ResponseEntity.ok(listOfStudent);
